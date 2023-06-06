@@ -9,9 +9,10 @@ type CoffeeMachineLogic = {
 
 export function createCoffeeMachineLogic(): CoffeeMachineLogic {
   return {
-    makeCoffee: (nbOfSuggar) => "C:2:0",
-    makeTea: (nbOfSuggar) => "T:1:0",
-    makeChocolate: (nbOfSuggar) => "H::",
-    sendMessage: (nbOfSuggar) => "M:message-content",
+    makeCoffee: (nbOfSuggar) => `C:${nbOfSuggar}:${nbOfSuggar === 0 ? "" : 0}`,
+    makeTea: (nbOfSuggar) => `T:${nbOfSuggar}:${nbOfSuggar === 0 ? "" : 0}`,
+    makeChocolate: (nbOfSuggar) =>
+      `H:${nbOfSuggar}:${nbOfSuggar === 0 ? "" : 0}`,
+    sendMessage: (message) => `M:${message}`,
   };
 }
