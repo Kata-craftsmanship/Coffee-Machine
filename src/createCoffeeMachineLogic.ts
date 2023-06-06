@@ -18,7 +18,8 @@ const price: Price = {
 export function createCoffeeMachineLogic(): CoffeeMachineLogic {
   let localMoney = 0;
 
-  const isEnoughMoney = (d: Drink): boolean => localMoney >= price[d];
+  const isEnoughMoney = (d: Drink): boolean =>
+    localMoney <= 0 || localMoney >= price[d];
 
   const makeDrink = (drink: Drink, nbOfSuggar?: NumberOfSugars): DrinkOrder =>
     isEnoughMoney(drink)
