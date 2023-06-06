@@ -1,7 +1,7 @@
 import { assert, describe, expect, it } from "vitest";
 import { createCoffeeMachineLogic } from "../src/createCoffeeMachineLogic";
 
-describe("Drink Maker Protocol", () => {
+describe("Drink Maker Protocol, first iteration", () => {
   it("Should send message", () => {
     //Given
     const coffeeMachineLogic = createCoffeeMachineLogic();
@@ -15,7 +15,7 @@ describe("Drink Maker Protocol", () => {
     //Given
     const coffeeMachineLogic = createCoffeeMachineLogic();
     //When
-    const command = coffeeMachineLogic.makeChocolate(1);
+    const command = coffeeMachineLogic.makeChocolate();
     //Then
     assert.equal(command, "H::");
   });
