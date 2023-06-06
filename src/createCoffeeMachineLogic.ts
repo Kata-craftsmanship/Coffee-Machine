@@ -1,4 +1,4 @@
-import { DrinkOrder, NumberOfSugars } from "./types";
+import { Drink, DrinkOrder, NumberOfSugars } from "./types";
 
 type CoffeeMachineLogic = {
   makeCoffee: (nbOfSuggar?: NumberOfSugars) => DrinkOrder;
@@ -8,11 +8,13 @@ type CoffeeMachineLogic = {
 };
 
 export function createCoffeeMachineLogic(): CoffeeMachineLogic {
+  const makeDrink = (drink: Drink, nbOfSuggar?: NumberOfSugars): DrinkOrder =>
+    `${drink}:${nbOfSuggar ?? ""}:${nbOfSuggar ? 0 : ""}`;
+
   return {
-    makeCoffee: (nbOfSuggar) => `C:${nbOfSuggar ?? ""}:${nbOfSuggar ? 0 : ""}`,
-    makeTea: (nbOfSuggar) => `T:${nbOfSuggar ?? ""}:${nbOfSuggar ? 0 : ""}`,
-    makeChocolate: (nbOfSuggar) =>
-      `H:${nbOfSuggar ?? ""}:${nbOfSuggar ? 0 : ""}`,
+    makeCoffee: (nbOfSuggar) => makeDrink("C", nbOfSuggar),
+    makeTea: (nbOfSuggar) => makeDrink("T", nbOfSuggar),
+    makeChocolate: (nbOfSuggar) => makeDrink("H", nbOfSuggar),
     sendMessage: (message) => `M:${message}`,
   };
 }
